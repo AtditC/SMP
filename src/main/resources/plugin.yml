@@ -3,3 +3,24 @@ description: SMP Plugin for Jala Servers
 main: ch.atdit.smp.Main
 author: Atdit
 version: 1.0
+commands:
+    stats:
+        description: View stats
+    prefix:
+        description: Manage prefixes
+    smp:
+        description: Manages the server
+    spawn:
+        description: Teleport to spawn
+    setspawn:
+        description: Set the spawn
+    enable:
+        description: Enables a setting
+    disable:
+        description: Disables a setting
+    buy:
+        description: Buy something
+    name:
+        description: Find a UUID by name
+    uuid:
+        description: Find a name by UUID
