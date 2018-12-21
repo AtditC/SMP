@@ -1,0 +1,5 @@
+name: SMP
+description: SMP Plugin for Jala Servers
+main: ch.atdit.smp.Main
+author: Atdit
+version: 1.0
