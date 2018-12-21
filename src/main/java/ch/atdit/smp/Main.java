@@ -38,6 +38,7 @@ public class Main extends JavaPlugin implements Listener {
 
 	@Override
 	public void onEnable() {
+	    instance = this;
 		Bukkit.getServer().getPluginManager().registerEvents(new Chat(), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new Death(), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new Join(), this);
