@@ -35,7 +35,7 @@ public class Chat implements Listener {
 		String uuid = p.getUniqueId().toString();
 		String prefix = Main.instance().getConfig().getString("prefix." + uuid);
 
-		Long latestJoin = Main.instance().getConfig().getLong("latestJoin." + uuid);
+		long latestJoin = Main.instance().getConfig().getLong("latestJoin." + uuid);
 		Long onlineTime = Main.instance().getConfig().getLong("onlineTime." + uuid + "") + (System.currentTimeMillis() - latestJoin);
 		
 		event.setFormat(formatMessage(event.getMessage(), p.getName(), prefix, onlineTime).replace("%", "%%"));

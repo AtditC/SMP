@@ -6,19 +6,19 @@ import java.util.Date;
 
 public class Methods {
 
-	public Integer getLevel(Long onlineTime) {
+	Integer getLevel(Long onlineTime) {
 		Integer divider = 60 * 1000; // 60 seconds
 		DecimalFormat formatLevel = new DecimalFormat("#0");
 		String groundLevel = formatLevel.format(Math.sqrt(onlineTime / divider)); // Exponential growth
 		return Integer.parseInt(groundLevel) + 1;
 	}
 
-	public String convertToDate(Long timestamp) {
+	String convertToDate(Long timestamp) {
 		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss Z");
 		return format.format(new Date(timestamp));
 	}
 
-	public String onlineTime(Long onlineTime, Long latestJoin) {
+	String onlineTime(Long onlineTime, Long latestJoin) {
 		Long ms;
 		
 		if (latestJoin == 0) {
@@ -67,7 +67,7 @@ public class Methods {
 		return output;
 	}
 
-	public String getKD(Double kills, Double deaths) {
+	String getKD(Double kills, Double deaths) {
 		if (kills == 0 && deaths == 0) {
 			return "0.00";
 		} else if (kills > 0) {

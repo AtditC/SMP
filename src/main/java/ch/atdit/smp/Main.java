@@ -57,7 +57,7 @@ public class Main extends JavaPlugin implements Listener {
 		getCommand("name").setExecutor(new Debug());
 		getLogger().info("SMP enabled!");
 		saveDefaultConfig();
-		
+
 		getConfig().set("latestStart", System.currentTimeMillis());
 
 		new BukkitRunnable() {
@@ -146,25 +146,25 @@ public class Main extends JavaPlugin implements Listener {
 						for (int i = 0; i < response.getBody().getObject().length(); i++) {
 							String command = response.getBody().getArray().getJSONObject(0).getJSONObject(String.valueOf(i)).getString("command");
 							if (command.equalsIgnoreCase("getPlayers")) {
-								String players = "";
+								StringBuilder players = new StringBuilder();
 								int i2 = 0;
 								for (Player p : Bukkit.getOnlinePlayers()) {
 									if (i2 == 0) {
-										players += p.getName();
+										players.append(p.getName());
 									} else {
-										players += ", " + p.getName();
+										players.append(", ").append(p.getName());
 									}
 									i2++;
 								}
 								
-								if (players.equalsIgnoreCase("")) {
-									players = "No players are online.";
+								if (players.toString().equalsIgnoreCase("")) {
+									players = new StringBuilder("No players are online.");
 								} else {
-									players = String.valueOf(i2) + " players are currently online: " + players;
+									players.insert(0, String.valueOf(i2) + " players are currently online: ");
 								}
 								try {
 									Unirest.post("http://localhost:35568/commands")
-											.header("Content-Type", "application/json").queryString("response", players).asJson();
+											.header("Content-Type", "application/json").queryString("response", players.toString()).asJson();
 								} catch (Exception e) {
 									e.printStackTrace();
 								}

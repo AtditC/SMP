@@ -13,9 +13,6 @@ import ch.atdit.smp.Main;
 
 public class Buy implements CommandExecutor {
 	
-	FileConfiguration config;
-	File cfile;
-	
 	public boolean onCommand(CommandSender sender, Command cmnd, String arg2, String[] args) {
 
 		String cmd = cmnd.getName();

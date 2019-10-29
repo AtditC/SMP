@@ -14,10 +14,7 @@ import org.bukkit.entity.Player;
 import ch.atdit.smp.Main;
 
 public class Prefix implements CommandExecutor {
-	
-	FileConfiguration config;
-	File cfile;
-	
+
 	public boolean onCommand(CommandSender sender, Command cmnd, String arg2, String[] args) {
 
 		String cmd = cmnd.getName();
